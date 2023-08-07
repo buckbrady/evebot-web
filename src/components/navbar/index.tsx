@@ -4,6 +4,7 @@ import {
   Button,
   Center,
   Flex,
+  Link,
   Menu,
   MenuButton,
   MenuDivider,
@@ -15,6 +16,7 @@ import {
   useDisclosure
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import EVETime from '@components/navbar/eveTime.tsx'
 
 // const NavLink = ({ children }: { children: ReactNode }) => (
 //   <Link
@@ -41,8 +43,12 @@ export default function NavBar() {
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box>EVEBot Tools</Box>
 
+          <Button variant={'ghost'} as={Link} href={'/status'}>
+            Status
+          </Button>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
+              <EVETime />
               <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
