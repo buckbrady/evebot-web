@@ -4,6 +4,14 @@ import { router } from './router.tsx'
 import { ChakraProvider } from '@chakra-ui/react'
 import theme from './theme.ts'
 import './styles.css'
+
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+
+const client = new ApolloClient({
+  uri: 'https://api.evebot.tools/v1/graphql',
+  cache: new InMemoryCache()
+})
+
 function App() {
   return (
     <ChakraProvider resetCSS theme={theme}>
@@ -14,7 +22,9 @@ function App() {
           clientID: import.meta.env.VITE_AUTHORIZER_CLIENT_ID as string
         }}
       >
-        <RouterProvider router={router} />
+        <ApolloProvider client={client}>
+          <RouterProvider router={router} />
+        </ApolloProvider>
       </AuthorizerProvider>
     </ChakraProvider>
   )

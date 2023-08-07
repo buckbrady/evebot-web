@@ -4,6 +4,7 @@ import SignIn from './pages/signin'
 import DashboardPage from './pages/dashboard'
 import LandingPage from './pages/landing'
 import CharactersPage from './pages/characters'
+import StatusPage from './pages/status'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: 'about',
         element: <LandingPage />
+      },
+      {
+        path: 'status',
+        element: <StatusPage />
       }
     ]
   },
