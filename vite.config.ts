@@ -10,7 +10,16 @@ export default defineConfig({
     tsconfigPaths(),
     react(),
     webUpdateNotice({
-      logVersion: true
+      logVersion: true,
+      locale: 'en_US',
+      localeData: {
+        en_US: {
+          title: '📢 System Update',
+          description: 'System update, please refresh the page',
+          buttonText: 'Refresh',
+          dismissButtonText: 'Dismiss'
+        }
+      }
     })
   ]
 })

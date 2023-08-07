@@ -4,7 +4,7 @@ import {
   Button,
   Center,
   Flex,
-  Link,
+  HStack,
   Menu,
   MenuButton,
   MenuDivider,
@@ -17,6 +17,8 @@ import {
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import EVETime from '@components/navbar/eveTime.tsx'
+import NavLink from '@components/navbar/navLink.tsx'
+import { Link } from 'react-router-dom'
 
 // const NavLink = ({ children }: { children: ReactNode }) => (
 //   <Link
@@ -41,11 +43,19 @@ export default function NavBar() {
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={6}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box>EVEBot Tools</Box>
+          <HStack spacing={8} alignItems={'center'}>
+            <Box>EVEBot Tools</Box>
 
-          <Button variant={'ghost'} as={Link} href={'/status'}>
-            Status
-          </Button>
+            <HStack
+              as={'nav'}
+              spacing={4}
+              display={{ base: 'none', md: 'flex' }}
+            >
+              <NavLink target={'/'} title={'Dashboard'} />
+              <NavLink target={'/status'} title={'Status'} />
+            </HStack>
+          </HStack>
+
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
               <EVETime />
@@ -80,7 +90,9 @@ export default function NavBar() {
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
+                  <MenuItem as={Link} to={'/characters'}>
+                    Characters
+                  </MenuItem>
                   <MenuItem>Account Settings</MenuItem>
                   <MenuItem>Logout</MenuItem>
                 </MenuList>

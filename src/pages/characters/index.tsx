@@ -1,5 +1,5 @@
 import { useAuthorizer } from '@authorizerdev/authorizer-react'
-import { useColorMode } from '@chakra-ui/react'
+import { Center, Container, useColorMode } from '@chakra-ui/react'
 import {
   LoginWithEVELrgDarkBtn,
   LoginWithEVELrgLightBtn
@@ -10,13 +10,15 @@ const CharactersPage = () => {
   const { colorMode } = useColorMode()
 
   return (
-    <div>
-      {colorMode === 'light' ? (
-        <LoginWithEVELrgLightBtn accountId={user?.id ? user.id : null} />
-      ) : (
-        <LoginWithEVELrgDarkBtn accountId={user?.id ? user.id : null} />
-      )}
-    </div>
+    <Container maxW={'80%'} paddingTop={'1em'}>
+      <Center>
+        {colorMode === 'light' ? (
+          <LoginWithEVELrgLightBtn accountId={user?.id ? user.id : null} />
+        ) : (
+          <LoginWithEVELrgDarkBtn accountId={user?.id ? user.id : null} />
+        )}
+      </Center>
+    </Container>
   )
 }
 
