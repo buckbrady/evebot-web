@@ -1,4 +1,4 @@
-import { Center, Flex, Text, Stack } from '@chakra-ui/react'
+import { Center, Text, Stack } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { DateTime } from 'luxon'
 
