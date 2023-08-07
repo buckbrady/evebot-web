@@ -1,0 +1,4 @@
+schema:
+  - https://api.evebot.tools/v1/graphql:
+      headers:
+        x-hasura-admin-secret: ${HASURA_GRAPHQL_ADMIN_SECRET}
